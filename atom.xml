@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>J的Blog</title>
+  
+  
+  <link href="https://level0-jj.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://level0-jj.github.io/"/>
+  <updated>2025-12-10T07:43:13.755Z</updated>
+  <id>https://level0-jj.github.io/</id>
+  
+  <author>
+    <name>J</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>My first Blog</title>
+    <link href="https://level0-jj.github.io/2025/12/10/My-first-Blog/"/>
+    <id>https://level0-jj.github.io/2025/12/10/My-first-Blog/</id>
+    <published>2025-12-10T06:59:22.000Z</published>
+    <updated>2025-12-10T07:43:13.755Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is my first blog.I spend the whole afternoon and eventually success!Despite the fact that I haven’t decorated it yet,I still have the confidencce to finish it.Maybe I should learn Markdown first.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;This is my first blog.I spend the whole afternoon and eventually success!Despite the fact that I haven’t decorated it yet,I still have th</summary>
+      
+    
+    
+    
+    <category term="-日常" scheme="https://level0-jj.github.io/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="-日常" scheme="https://level0-jj.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+</feed>
