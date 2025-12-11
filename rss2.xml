@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>J的Blog</title>
+    <link>https://level0-jj.github.io/</link>
+    
+    <atom:link href="https://level0-jj.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>是个懒惰的大一小灯，努力学习ing o(*￣▽￣*)ブ</description>
+    <pubDate>Wed, 10 Dec 2025 07:43:13 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>My first Blog</title>
+      <link>https://level0-jj.github.io/2025/12/10/My-first-Blog/</link>
+      <guid>https://level0-jj.github.io/2025/12/10/My-first-Blog/</guid>
+      <pubDate>Wed, 10 Dec 2025 06:59:22 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;This is my first blog.I spend the whole afternoon and eventually success!Despite the fact that I haven’t decorated it yet,I still have th</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>This is my first blog.I spend the whole afternoon and eventually success!Despite the fact that I haven’t decorated it yet,I still have the confidencce to finish it.Maybe I should learn Markdown first.</p>]]></content:encoded>
+      
+      
+      <category domain="https://level0-jj.github.io/categories/%E6%97%A5%E5%B8%B8/">-日常</category>
+      
+      
+      <category domain="https://level0-jj.github.io/tags/%E6%97%A5%E5%B8%B8/">-日常</category>
+      
+      
+      <comments>https://level0-jj.github.io/2025/12/10/My-first-Blog/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
