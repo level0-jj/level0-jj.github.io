@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="J"><meta name="copyright" content="J"><meta name="generator" content="Hexo 8.1.1"><meta name="theme" content="hexo-theme-yun"><title>终端typing_game | J的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"level0-jj.github.io","root":"/","title":"J的小破站","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/rss2.xml" title="J的小站" type="application/rss+xml"><meta name="description" content="游戏简介这款打字小游戏会在终端中生成一个 4x6 的随机字母矩阵，你需要按照行优先的顺序依次输入正确的字母。每输入正确一个格子就会变成绿色，错误则变成红色并累积错误次数。当错误次数达到上限（默认 5 次）时游戏失败；全部正确输入后游戏胜利。 核心特性：  随机生成大写字母矩阵 彩色高亮显示当前输入位置（青色背景）、正确输入（绿色）、错误输入（红色） 实时错误计数，支持中途按 ESC 退出 跨平台支">
+<meta property="og:type" content="article">
+<meta property="og:title" content="终端typing_game">
+<meta property="og:url" content="https://level0-jj.github.io/2026/05/12/%E7%BB%88%E7%AB%AFtyping-game/index.html">
+<meta property="og:site_name" content="J的小站">
+<meta property="og:description" content="游戏简介这款打字小游戏会在终端中生成一个 4x6 的随机字母矩阵，你需要按照行优先的顺序依次输入正确的字母。每输入正确一个格子就会变成绿色，错误则变成红色并累积错误次数。当错误次数达到上限（默认 5 次）时游戏失败；全部正确输入后游戏胜利。 核心特性：  随机生成大写字母矩阵 彩色高亮显示当前输入位置（青色背景）、正确输入（绿色）、错误输入（红色） 实时错误计数，支持中途按 ESC 退出 跨平台支">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://level0-jj.github.io/2026/05/12/%E7%BB%88%E7%AB%AFtyping-game/1.png">
+<meta property="article:published_time" content="2026-05-12T04:05:36.000Z">
+<meta property="article:modified_time" content="2026-05-13T07:22:01.228Z">
+<meta property="article:author" content="J">
+<meta property="article:tag" content="-c++
+-小游戏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://level0-jj.github.io/2026/05/12/%E7%BB%88%E7%AB%AFtyping-game/1.png"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="J"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="J"><span class="site-author-status" title="Looking for dawn.">🌑</span></a><div class="site-author-name"><a href="/about/">J</a></div><span class="site-name">J的小站</span><sub class="site-subtitle">希望开心每一天……</sub><div class="site-description">是个懒惰的大一小灯，努力学习ing o(*￣▽￣*)ブ</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">2</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">4</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:clipboard-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/level0-jj" title="GitHub" target="_blank" style="color:#6e5494"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/600259872" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2481937283@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/about/#comment" title="留言板" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:clipboard-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">游戏简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84%E8%A7%A3%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">代码结构解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%B9%B3%E5%8F%B0%E6%97%A0%E7%BC%93%E5%86%B2%E8%BE%93%E5%85%A5"><span class="toc-number">2.1.</span> <span class="toc-text">跨平台无缓冲输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E7%94%A8-Windows-%E7%BB%88%E7%AB%AF-ANSI-%E8%89%B2%E5%BD%A9"><span class="toc-number">2.2.</span> <span class="toc-text">启用 Windows 终端 ANSI 色彩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.3.</span> <span class="toc-text">游戏数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%B8%BB%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.4.</span> <span class="toc-text">游戏主循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F%E7%94%BB%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">结束画面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="toc-number">2.6.</span> <span class="toc-text">效果展示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E4%B8%8E%E6%94%B9%E8%BF%9B"><span class="toc-number">3.</span> <span class="toc-text">扩展与改进</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://level0-jj.github.io/2026/05/12/%E7%BB%88%E7%AB%AFtyping-game/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="J"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="J的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">终端typing_game</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2026-05-12 12:05:36" itemprop="dateCreated datePublished" datetime="2026-05-12T12:05:36+08:00">2026-05-12</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2026-05-13 15:22:01" itemprop="dateModified" datetime="2026-05-13T15:22:01+08:00">2026-05-13</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">1.3k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">5m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%BC%96%E7%A8%8B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">-编程</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/c-%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">-c++
+-小游戏</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h2 id="游戏简介"><a href="#游戏简介" class="headerlink" title="游戏简介"></a>游戏简介</h2><p>这款打字小游戏会在终端中生成一个 <code>4x6</code> 的随机字母矩阵，你需要按照<strong>行优先</strong>的顺序依次输入正确的字母。每输入正确一个格子就会变成绿色，错误则变成红色并累积错误次数。当错误次数达到上限（默认 5 次）时游戏失败；全部正确输入后游戏胜利。</p>
+<p><strong>核心特性</strong>：</p>
+<ul>
+<li>随机生成大写字母矩阵</li>
+<li>彩色高亮显示当前输入位置（青色背景）、正确输入（绿色）、错误输入（红色）</li>
+<li>实时错误计数，支持中途按 <code>ESC</code> 退出</li>
+<li>跨平台支持 Windows &#x2F; Linux &#x2F; macOS</li>
+</ul>
+<hr>
+<h2 id="代码结构解析"><a href="#代码结构解析" class="headerlink" title="代码结构解析"></a>代码结构解析</h2><h3 id="跨平台无缓冲输入"><a href="#跨平台无缓冲输入" class="headerlink" title="跨平台无缓冲输入"></a>跨平台无缓冲输入</h3><p>为了实现“按下一个键立即响应而不需要回车”，代码分别处理了 Windows 和 Unix-like 系统：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">_WIN32  </span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;conio.h></span></span>
+    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">GETCH</span> <span class="token expression">_getch</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">else</span>    </span>
+    <span class="token comment">// 使用 termios 关闭规范输入和回显</span>
+    <span class="token keyword">int</span> <span class="token function">GETCH</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="启用-Windows-终端-ANSI-色彩"><a href="#启用-Windows-终端-ANSI-色彩" class="headerlink" title="启用 Windows 终端 ANSI 色彩"></a>启用 Windows 终端 ANSI 色彩</h3><p>Windows 10+ 的默认控制台支持 ANSI 转义序列，但需要手动启用。代码中定义了 enableAnsi() 函数：</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">enableAnsi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    HANDLE hOut <span class="token operator">=</span> <span class="token function">GetStdHandle</span><span class="token punctuation">(</span>STD_OUTPUT_HANDLE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    DWORD dwMode <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">GetConsoleMode</span><span class="token punctuation">(</span>hOut<span class="token punctuation">,</span> <span class="token operator">&amp;</span>dwMode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dwMode <span class="token operator">|=</span> ENABLE_VIRTUAL_TERMINAL_PROCESSING<span class="token punctuation">;</span>
+    <span class="token function">SetConsoleMode</span><span class="token punctuation">(</span>hOut<span class="token punctuation">,</span> dwMode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样在 Windows 下也能使用 \033[32m 这类颜色控制码。</p>
+<h3 id="游戏数据结构"><a href="#游戏数据结构" class="headerlink" title="游戏数据结构"></a>游戏数据结构</h3><ul>
+<li><p><strong>字母矩阵</strong>：<code>vector&lt;vector&lt;char&gt;&gt; letters(ROWS, vector&lt;char&gt;(COLS))</code><br>每个位置存储一个随机大写字母（<code>&#39;A&#39; + dis(engine)</code>）。</p>
+</li>
+<li><p><strong>状态矩阵</strong>：<code>vector&lt;vector&lt;int&gt;&gt; status(ROWS, vector&lt;int&gt;(COLS, 0))</code><br>0 &#x3D; 未输入，1 &#x3D; 正确，-1 &#x3D; 错误。</p>
+</li>
+<li><p><strong>当前指针</strong>：<code>int currentRow, currentCol</code> 表示下一个要输入的格子。</p>
+</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> ROWS<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> COLS<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAX_ERRORS<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+   <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifdef</span> <span class="token expression">_WIN32</span></span>
+    <span class="token function">SetConsoleOutputCP</span><span class="token punctuation">(</span>CP_UTF8<span class="token punctuation">)</span><span class="token punctuation">;</span>          
+    <span class="token function">SetConsoleCP</span><span class="token punctuation">(</span>CP_UTF8<span class="token punctuation">)</span><span class="token punctuation">;</span>                
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token function">enableAnsi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//开启ANSI转义码</span>
+
+<span class="token comment">//用时间生成随机字母</span>
+<span class="token keyword">auto</span> seed <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span>chrono<span class="token double-colon punctuation">::</span>steady_clock<span class="token double-colon punctuation">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">time_since_epoch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+std<span class="token double-colon punctuation">::</span>mt19937 <span class="token function">engine</span><span class="token punctuation">(</span>seed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+std<span class="token double-colon punctuation">::</span>uniform_int_distribution<span class="token operator">&lt;</span><span class="token operator">></span> <span class="token function">dis</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//一个vector，每一个元素是另一个vector&lt;char>，外层是行，内层是列</span>
+<span class="token comment">//std::vector&lt;char>(COLS)一个临时内层vector，作为每一行的初始值</span>
+<span class="token comment">//临时对象本身是 vector&lt;char>(COLS)，表示它创建一个大小为 COLS 的 vector&lt;char>，即每一行有 COLS 个字符。</span>
+std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">>></span> <span class="token function">letters</span><span class="token punctuation">(</span>ROWS<span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">vector</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>COLS<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> r<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>r<span class="token operator">&lt;</span>ROWS<span class="token punctuation">;</span><span class="token operator">++</span>r<span class="token punctuation">)</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>c<span class="token operator">&lt;</span>COLS<span class="token punctuation">;</span><span class="token operator">++</span>c<span class="token punctuation">)</span>
+        letters<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">=</span><span class="token char">'A'</span><span class="token operator">+</span><span class="token function">dis</span><span class="token punctuation">(</span>engine<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//记录每个位置的判定结果，0=为输入，1=正确，-1=错误</span>
+std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span>std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span><span class="token function">status</span><span class="token punctuation">(</span>ROWS<span class="token punctuation">,</span>std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">vector</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>COLS<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> currentRow<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>currentCol<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>      <span class="token comment">//当前待输入位置</span>
+<span class="token keyword">int</span> error<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>            <span class="token comment">//错误次数</span>
+<span class="token keyword">bool</span> gameOver<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">bool</span> victory<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="游戏主循环"><a href="#游戏主循环" class="headerlink" title="游戏主循环"></a>游戏主循环</h3><ol>
+<li>清屏并重新绘制整个界面（使用 ANSI 码 <code>\033[2J\033[H</code>）。</li>
+<li>根据 <code>status</code> 和当前光标位置设定不同颜色：<ul>
+<li>当前格子 → 青色背景、黑色文字</li>
+<li>正确格子 → 绿色文字</li>
+<li>错误格子 → 红色文字</li>
+<li>未输入格子 → 白色文字</li>
+</ul>
+</li>
+<li>等待用户按键：<ul>
+<li><code>ESC</code> → 退出游戏</li>
+<li>其他字母 → 与 <code>letters[currentRow][currentCol]</code> 比较</li>
+</ul>
+</li>
+<li>判断正确&#x2F;错误，更新状态、错误计数，并移动光标。</li>
+<li>当错误次数 ≥ <code>MAX_ERRORS</code> 或所有格子输入完毕时，结束主循环。</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>gameOver<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">//清屏并定位到左上角</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[2J\033[H"</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//绘制矩阵</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> r<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>r<span class="token operator">&lt;</span>ROWS<span class="token punctuation">;</span>r<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> c<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>c<span class="token operator">&lt;</span>COLS<span class="token punctuation">;</span>c<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>r<span class="token operator">==</span>currentRow<span class="token operator">&amp;&amp;</span>c<span class="token operator">==</span>currentCol<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[46m\033[30m"</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>status<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[32m"</span><span class="token punctuation">;</span><span class="token comment">//正确输入绿色</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>status<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[31m"</span><span class="token punctuation">;</span><span class="token comment">//错误输入红色</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+                std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[37m"</span><span class="token punctuation">;</span><span class="token comment">//带输入白色</span>
+            <span class="token punctuation">&#125;</span>
+            std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token char">' '</span><span class="token operator">&lt;&lt;</span>letters<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">[</span>c<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span><span class="token char">' '</span><span class="token punctuation">;</span>
+            std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[0m"</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token char">'\n'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//显示错误计数和提示</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\n错误次数："</span><span class="token operator">&lt;&lt;</span>error<span class="token operator">&lt;&lt;</span><span class="token string">"/"</span><span class="token operator">&lt;&lt;</span>MAX_ERRORS
+            <span class="token operator">&lt;&lt;</span><span class="token string">"\t输入字母（退出按ESC）："</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//读取一个键</span>
+    <span class="token keyword">int</span> ch<span class="token operator">=</span><span class="token function">GETCH</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ch<span class="token operator">==</span><span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        gameOver<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//转成大写</span>
+    <span class="token keyword">char</span> inputChar<span class="token operator">=</span><span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">char</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span><span class="token function">toupper</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>inputChar<span class="token operator">==</span>letters<span class="token punctuation">[</span>currentRow<span class="token punctuation">]</span><span class="token punctuation">[</span>currentCol<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        status<span class="token punctuation">[</span>currentRow<span class="token punctuation">]</span><span class="token punctuation">[</span>currentCol<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+        status<span class="token punctuation">[</span>currentRow<span class="token punctuation">]</span><span class="token punctuation">[</span>currentCol<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token operator">++</span>error<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>error<span class="token operator">>=</span>MAX_ERRORS<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            gameOver<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+            victory<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//移动到下一个格子（行优先）</span>
+    <span class="token operator">++</span>currentCol<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>currentCol<span class="token operator">>=</span>COLS<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        currentCol<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token operator">++</span>currentRow<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>currentRow<span class="token operator">>=</span>ROWS<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">//全部输入完毕</span>
+            gameOver<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+            victory<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="结束画面"><a href="#结束画面" class="headerlink" title="结束画面"></a>结束画面</h3><ul>
+<li>胜利时显示绿色祝贺信息，并附带“🎉恭喜喵”。</li>
+<li>失败时显示红色错误信息，指出超出错误次数。</li>
+<li>普通退出则显示提示。</li>
+</ul>
+<p>最后调用 <code>GETCH()</code> 等待任意键退出，避免控制台窗口一闪而过。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[2J\033[H"</span><span class="token punctuation">;</span><span class="token comment">//清屏</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>victory<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[32m🎉恭喜喵\033[0m\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>error<span class="token operator">>=</span>MAX_ERRORS<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\033[31m💥错误达到"</span><span class="token operator">&lt;&lt;</span>MAX_ERRORS<span class="token operator">&lt;&lt;</span><span class="token string">",失败了喵\033[0m\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"游戏已退出。\n"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//等待按键再退出</span>
+std<span class="token double-colon punctuation">::</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"\n按任意键退出……"</span><span class="token punctuation">;</span>
+<span class="token function">GETCH</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><p>在终端输入</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">g<span class="token operator">++</span> typing_game<span class="token punctuation">.</span>cpp <span class="token operator">-</span>o typing_game<span class="token punctuation">.</span>exe
+<span class="token punctuation">.</span>\typing_game<span class="token punctuation">.</span>exe<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="1.png" alt="游戏界面" loading="lazy"></p>
+<h2 id="扩展与改进"><a href="#扩展与改进" class="headerlink" title="扩展与改进"></a>扩展与改进</h2><p>还在开发中……之后会作出一个GUI，然后再丰富玩法……</p>
+</div></section><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>J</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://level0-jj.github.io/2026/05/12/%E7%BB%88%E7%AB%AFtyping-game/" title="终端typing_game">https://level0-jj.github.io/2026/05/12/%E7%BB%88%E7%AB%AFtyping-game/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2026/05/12/cpp%E6%93%8D%E7%BA%B5%E5%83%8F%E7%B4%A0%E5%9C%A8CPU%E4%B8%8A%E8%B7%91Shader/" rel="prev" title="cpp操纵像素在CPU上跑Shader"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">cpp操纵像素在CPU上跑Shader</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2026/05/11/%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%EF%BC%88LeNet-5%EF%BC%89/" rel="next" title="手写数字识别（LeNet-5）"><span class="post-nav-text">手写数字识别（LeNet-5）</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/level0-jj" target="_blank">GitHub Discussions</a> 与我交流。</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2025 – 2026 </span><span class="with-love" id="animate" title="赞助者"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> J</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v8.1.1</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div><div class="live-time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2025-12-28T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} 天 ${passHour} 小时 ${passMinute} 分 ${passSecond} 秒`;
+}
+blog_live_time();
+</script></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
