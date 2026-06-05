@@ -124,7 +124,7 @@ html.dark {
   --hty-secondary-text-color: #555;
   --post-block-bg-color: #fff;
   --smc-link-color: #0078e7;
-  --yun-bg-image: url("/images/bg.jpg");
+  --yun-bg-image: url("/images/bg4.jpg");
   --banner-line-color: #000;
   --banner-char-color: #000;
 }
@@ -135,7 +135,7 @@ html.dark {
   --hty-secondary-text-color: #eee;
   --post-block-bg-color: #1b1f2e;
   --smc-link-color: #3ca1ff;
-  --yun-bg-image: url("/images/bg.jpg");
+  --yun-bg-image: url("/images/bg2.jpg");
   --banner-line-color: #fff;
   --banner-char-color: #fff;
   --banner-char-bg-color: rgba(0,0,0,0.5);
@@ -849,29 +849,35 @@ body::before {
   text-decoration: none;
 }
 .tag-list {
-  padding: 0.5rem 1.5rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
 }
 .tag-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.4rem 1rem;
-  margin: 0.2rem 0;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  margin: 0.25rem;
   border-radius: 6px;
   text-decoration: none;
   transition: all 0.2s ease;
+  border: 1px solid currentColor;
+  opacity: 0.85;
 }
 .tag-list-item:hover {
-  background-color: rgba(0,120,231,0.08);
-  transform: translateX(4px);
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.tag-list-item .icon {
+  vertical-align: -0.15em;
+  margin-right: 2px;
 }
 .tag-list-name {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 .tag-list-count {
-  font-size: 0.85rem;
-  opacity: 0.6;
+  font-size: 0.8rem;
+  opacity: 0.7;
 }
 .tag-list-count::before {
   content: '(';
@@ -916,7 +922,7 @@ body::before {
 }
 .wordcloud #wordcloud-canvas,
 .wordcloud #wordcloud-sidebar-canvas {
-  cursor: url("$cursor-pointer"), pointer;
+  cursor: pointer;
 }
 .wordcloud #wordbox {
   pointer-events: none;
@@ -1226,7 +1232,6 @@ body::before {
   left: 0;
   top: 0;
   z-index: 11;
-  pointer-events: none;
 }
 .spinner {
   width: 60px;
