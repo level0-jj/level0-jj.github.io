@@ -127,7 +127,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', scheduleRender);
-  document.addEventListener('pjax:complete', scheduleRender);
+  document.addEventListener('pjax:success', scheduleRender);
 
   if (document.readyState !== 'loading') scheduleRender();
 
