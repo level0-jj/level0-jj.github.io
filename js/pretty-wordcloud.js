@@ -79,7 +79,28 @@
     });
   }
 
+  function renderFriendshipQuote() {
+    const quote = document.querySelector('#links + .post-block blockquote p');
+    if (!quote) return;
+
+    const quotes = [
+      ['真正的朋友，是一个灵魂孕育在两个躯体里。', '亚里士多德'],
+      ['人生得一知己足矣，斯世当以同怀视之。', '鲁迅'],
+      ['海内存知己，天涯若比邻。', '王勃'],
+      ['同是天涯沦落人，相逢何必曾相识。', '白居易'],
+      ['友谊是人生的调味品，也是人生的止痛药。', '爱默生'],
+      ['最好的镜子是老朋友。', '乔治·赫伯特'],
+    ];
+    const [text, author] = quotes[Math.floor(Math.random() * quotes.length)];
+    quote.replaceChildren(
+      document.createTextNode(text),
+      document.createElement('br'),
+      document.createTextNode(`—— ${author}`),
+    );
+  }
+
   function scheduleRender() {
+    renderFriendshipQuote();
     let attempts = 0;
     const timer = window.setInterval(() => {
       attempts += 1;
@@ -94,6 +115,8 @@
 
   document.addEventListener('DOMContentLoaded', scheduleRender);
   document.addEventListener('pjax:complete', scheduleRender);
+
+  if (document.readyState !== 'loading') scheduleRender();
 
   let resizeTimer;
   window.addEventListener('resize', () => {

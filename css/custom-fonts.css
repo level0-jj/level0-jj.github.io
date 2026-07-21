@@ -119,6 +119,24 @@ canvas.fireworks {
   pointer-events: none;
 }
 
+/* Random friendship quote on the links page. */
+#links + .post-block blockquote {
+  box-sizing: border-box;
+  max-width: 36rem;
+  margin: 2.5rem auto 0;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  border-left: 3px solid var(--primary-color, #8e71c1);
+  border-radius: 0.75rem;
+  background: rgba(142, 113, 193, 0.08);
+}
+
+#links + .post-block blockquote p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
 @media (max-width: 576px) {
   .wordcloud {
     padding: 0.5rem;
