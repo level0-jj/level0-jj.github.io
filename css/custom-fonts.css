@@ -30,3 +30,102 @@ kbd,
 samp {
   font-family: "Source Code Pro", Consolas, Monaco, "Microsoft YaHei", monospace !important;
 }
+
+/* Refined tag list and word cloud. */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 1.5rem auto 1.25rem;
+}
+
+.tag-list .tag-list-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0 !important;
+  padding: 0.42rem 0.8rem;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--hty-bg-color, #fff) 84%, transparent);
+  box-shadow: 0 4px 14px rgba(54, 72, 110, 0.07);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.tag-list .tag-list-item:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, currentColor 9%, var(--hty-bg-color, #fff));
+  box-shadow: 0 8px 22px rgba(54, 72, 110, 0.14);
+}
+
+.tag-list .tag-list-count {
+  min-width: 1.25rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+.tag-list .tag-list-count::before,
+.tag-list .tag-list-count::after {
+  content: none !important;
+}
+
+.wordcloud {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 1.5rem auto 0 !important;
+  padding: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(116, 132, 168, 0.16);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(91, 124, 250, 0.11), transparent 32%),
+    radial-gradient(circle at 85% 78%, rgba(209, 107, 134, 0.1), transparent 30%),
+    color-mix(in srgb, var(--hty-bg-color, #fff) 82%, transparent);
+  box-shadow: 0 16px 45px rgba(54, 72, 110, 0.1);
+}
+
+.wordcloud::before {
+  content: "TAG CLOUD";
+  position: absolute;
+  top: 1rem;
+  left: 1.2rem;
+  color: rgba(91, 124, 250, 0.45);
+  font: 600 0.68rem/1 "Source Code Pro", Consolas, monospace;
+  letter-spacing: 0.18em;
+  pointer-events: none;
+}
+
+#wordcloud-canvas {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+  filter: saturate(0.92);
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+#wordcloud-canvas.is-hovering {
+  filter: saturate(1.12);
+}
+
+@media (max-width: 576px) {
+  .wordcloud {
+    padding: 0.5rem;
+    border-radius: 18px;
+  }
+
+  .tag-list {
+    gap: 0.45rem;
+  }
+
+  .tag-list .tag-list-item {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.9rem;
+  }
+}
