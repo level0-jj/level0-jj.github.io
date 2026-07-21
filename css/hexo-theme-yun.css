@@ -191,7 +191,7 @@ html.dark {
   color: #000;
 }
 body {
-  font-family: 'PingFang SC', 'Microsoft YaHei', Roboto, Arial, sans-serif;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -340,9 +340,9 @@ body::before {
   height: 100vh;
 }
 #banner .char {
-  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
   font-size: var(--banner-char-size, 1rem);
-  font-weight: 900;
+  font-weight: 600;
   background-color: var(--banner-char-bg-color);
   line-height: 1;
   transition-property: all;
@@ -796,8 +796,8 @@ body::before {
   padding-left: 0.6rem;
 }
 .link-url .link-blog {
-  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
-  font-weight: 900;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
+  font-weight: 600;
   margin: 0.42rem 0;
 }
 .link-url .link-desc {
@@ -1438,7 +1438,7 @@ body::before {
   background: rgba(0,120,231,0.3);
 }
 .post-collapse .collection-title .archive-year {
-  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular, 'Ubuntu Mono', Menlo, monospace;
+  font-family: 'Source Code Pro', Consolas, Monaco, 'Microsoft YaHei', monospace;
   color: #0078e7;
   margin: 0 1.5rem;
 }
@@ -1502,7 +1502,7 @@ body::before {
   margin-right: 0.3rem;
 }
 .post-collapse .post-header .post-meta {
-  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular, 'Ubuntu Mono', Menlo, monospace;
+  font-family: 'Source Code Pro', Consolas, Monaco, 'Microsoft YaHei', monospace;
   font-size: 1rem;
   margin: 1rem 0 1rem 1.2rem;
   white-space: nowrap;
@@ -1520,8 +1520,8 @@ body::before {
   margin: 0;
   padding: 10px;
   font-size: 1.5rem;
-  font-weight: 900;
-  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  font-weight: 600;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
 }
 .post-header .post-title .icon {
   width: 1.6rem;
@@ -1576,12 +1576,12 @@ body::before {
 .markdown-body {
   color: var(--hty-text-color);
   font-weight: 400;
-  font-family: 'PingFang SC', 'Microsoft YaHei', Roboto, Arial, sans-serif;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
   padding: 1rem 0;
 }
 .markdown-body code,
 .markdown-body pre {
-  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular, 'Ubuntu Mono', Menlo, monospace;
+  font-family: 'Source Code Pro', Consolas, Monaco, 'Microsoft YaHei', monospace;
 }
 .markdown-body blockquote {
   padding: 0.6rem 1rem;
@@ -1811,7 +1811,7 @@ body::before {
   line-height: 1.8;
   padding: 1rem;
   font-size: 1.1rem;
-  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
 }
 .post-toc ol {
   list-style: none;
@@ -1826,7 +1826,7 @@ body::before {
   color: #db2828;
 }
 .post-toc ol .toc-number {
-  font-family: 'Source Code Pro', Consolas, Monaco, SFMono-Regular, 'Ubuntu Mono', Menlo, monospace;
+  font-family: 'Source Code Pro', Consolas, Monaco, 'Microsoft YaHei', monospace;
 }
 .post-toc ol .toc-child {
   font-size: 1rem;
@@ -2009,8 +2009,8 @@ body::before {
 }
 .site-name {
   color: var(--hty-text-color);
-  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
-  font-weight: 900;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
+  font-weight: 600;
 }
 .site-subtitle {
   color: #999;
@@ -2116,7 +2116,7 @@ body::before {
   color: var(--hty-text-color);
   display: block;
   text-align: center;
-  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
   font-weight: bold;
   padding: 0.5rem;
   border-top: 1px solid var(--hty-secondary-text-color);
@@ -2223,7 +2223,7 @@ iframe.bilibili-video {
 }
 .girl-item .girl-from {
   font-size: 12px;
-  font-family: 'Songti SC', 'Noto Serif SC', STZhongsong, STKaiti, KaiTi, Roboto, serif;
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', SimSun, serif;
   font-weight: bold;
   color: var(--hty-secondary-text-color);
 }

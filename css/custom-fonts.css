@@ -1,0 +1,32 @@
+/* Blog typography: book-like Chinese serif for headings and body text. */
+html,
+body,
+input,
+button,
+textarea,
+.markdown-body {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif !important;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.site-title,
+.banner-title,
+.post-title,
+.post-card-title {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif !important;
+  font-weight: 600 !important;
+}
+
+/* Keep source code aligned with a monospace font. */
+code,
+pre,
+kbd,
+samp {
+  font-family: "Source Code Pro", Consolas, Monaco, "Microsoft YaHei", monospace !important;
+}
