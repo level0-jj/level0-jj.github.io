@@ -80,8 +80,23 @@
   }
 
   function renderFriendshipQuote() {
-    const quote = document.querySelector('#links + .post-block blockquote p');
-    if (!quote) return;
+    const links = document.getElementById('links');
+    if (!links) return;
+
+    let quote = document.querySelector('.friendship-quote');
+    if (!quote) {
+      quote = document.createElement('div');
+      quote.className = 'friendship-quote';
+      quote.setAttribute('role', 'note');
+      quote.setAttribute('aria-label', '友情名言');
+
+      const textElement = document.createElement('p');
+      textElement.className = 'friendship-quote-text';
+      const authorElement = document.createElement('cite');
+      authorElement.className = 'friendship-quote-author';
+      quote.append(textElement, authorElement);
+      links.insertAdjacentElement('afterend', quote);
+    }
 
     const quotes = [
       ['真正的朋友，是一个灵魂孕育在两个躯体里。', '亚里士多德'],
@@ -92,11 +107,9 @@
       ['最好的镜子是老朋友。', '乔治·赫伯特'],
     ];
     const [text, author] = quotes[Math.floor(Math.random() * quotes.length)];
-    quote.replaceChildren(
-      document.createTextNode(text),
-      document.createElement('br'),
-      document.createTextNode(`—— ${author}`),
-    );
+    quote.querySelector('.friendship-quote-text').textContent = text;
+    quote.querySelector('.friendship-quote-author').textContent = `—— ${author}`;
+    window.requestAnimationFrame(() => quote.classList.add('is-visible'));
   }
 
   function scheduleRender() {

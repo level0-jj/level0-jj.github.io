@@ -120,21 +120,56 @@ canvas.fireworks {
 }
 
 /* Random friendship quote on the links page. */
-#links + .post-block blockquote {
-  box-sizing: border-box;
-  max-width: 36rem;
-  margin: 2.5rem auto 0;
-  padding: 1.25rem 1.5rem;
+.friendship-quote {
+  position: relative;
+  max-width: 38rem;
+  margin: 2.75rem auto 0;
+  padding: 0.2rem 2.25rem;
+  color: var(--hty-text-color, #555);
   text-align: center;
-  border-left: 3px solid var(--primary-color, #8e71c1);
-  border-radius: 0.75rem;
-  background: rgba(142, 113, 193, 0.08);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 500ms ease, transform 500ms ease;
 }
 
-#links + .post-block blockquote p {
+.friendship-quote.is-visible {
+  opacity: 0.78;
+  transform: translateY(0);
+}
+
+.friendship-quote::before,
+.friendship-quote::after {
+  position: absolute;
+  top: -0.35rem;
+  color: var(--primary-color, #8e71c1);
+  font: 400 2.4rem/1 Georgia, serif;
+  opacity: 0.3;
+}
+
+.friendship-quote::before {
+  left: 0;
+  content: "“";
+}
+
+.friendship-quote::after {
+  right: 0;
+  content: "”";
+}
+
+.friendship-quote-text {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+}
+
+.friendship-quote-author {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--hty-secondary-text-color, #888);
+  font-size: 0.82rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
 }
 
 @media (max-width: 576px) {
