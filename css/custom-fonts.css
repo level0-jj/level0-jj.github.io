@@ -114,6 +114,11 @@ samp {
   filter: saturate(1.12);
 }
 
+/* The canvas only draws particles; clicks pass through to the page listener. */
+canvas.fireworks {
+  pointer-events: none;
+}
+
 @media (max-width: 576px) {
   .wordcloud {
     padding: 0.5rem;
