@@ -146,7 +146,8 @@ Image <span class="token operator">*</span><span class="token function">CreateNe
 <h2 id="图像的储存"><a href="#图像的储存" class="headerlink" title="图像的储存"></a>图像的储存</h2><p>程序中的图像数据：<code>unsigned char *data</code>实际上是一维数组，但图像本质上是二维的，因此需要进行二维转一维：<code>index = width * i + j</code></p>
 <h2 id="均值滤波（Average-Filter）"><a href="#均值滤波（Average-Filter）" class="headerlink" title="均值滤波（Average Filter）"></a>均值滤波（Average Filter）</h2><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
 <li>对图像中每个像素（除边缘外），用自身和周围8个像素（共 9 个）的平均值替换原像素值。</li>
-<li>公式<br>$$ Pixel(i,j)&#x3D;\frac{1}{9}\sum_{x&#x3D;1}^{1}\sum_{y&#x3D;-1}^{1}origina(i+x,i+y) $$</li>
+<li>公式
+$$ Pixel(i,j)&#x3D;\frac{1}{9}\sum_{x&#x3D;1}^{1}\sum_{y&#x3D;-1}^{1}origina(i+x,i+y) $$</li>
 <li>边缘像素直接忽略（不处理）。</li>
 </ul>
 <p>结果：对lena.pgm处理后，图像变平滑（模糊）。</p>
@@ -186,7 +187,8 @@ Image <span class="token operator">*</span><span class="token function">CreateNe
 <p>之所以从 1 开始，到 Height-1 结束：是为了避免访问越界。因为需要访问：</p>
 <p><code>(i-1,j-1) (i+1,j+1)</code></p>
 <p>边界像素无法完整获得 3×3 邻域。</p>
-<h3 id="均值滤波的问题"><a href="#均值滤波的问题" class="headerlink" title="均值滤波的问题"></a>均值滤波的问题</h3><p>均值滤波虽然简单，但有一个非常明显的问题：<br><strong>会让图像变模糊</strong></p>
+<h3 id="均值滤波的问题"><a href="#均值滤波的问题" class="headerlink" title="均值滤波的问题"></a>均值滤波的问题</h3><p>均值滤波虽然简单，但有一个非常明显的问题：
+<strong>会让图像变模糊</strong></p>
 <p>因为：它会把周围像素“平均化”，边缘细节会丢失。</p>
 <h2 id="中值滤波（Median-Filter）"><a href="#中值滤波（Median-Filter）" class="headerlink" title="中值滤波（Median Filter）"></a>中值滤波（Median Filter）</h2><h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><ul>
 <li>与均值滤波类似，但替换为9个像素的中位数（中间值）。</li>
@@ -239,9 +241,12 @@ Image <span class="token operator">*</span><span class="token function">CreateNe
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">ffmpeg -i lena.bmp lena.pgm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>分别应用均值滤波和中值滤波，得到以下结果。</p>
-<p>原始图像：<br><img src="lena.png" alt="Lena原始图" loading="lazy"></p>
-<p>均值滤波效果：<br><img src="lena_avg.png" alt="均值滤波" loading="lazy"></p>
-<p>中值滤波效果：<br><img src="lena_med.png" alt="中值滤波" loading="lazy"></p>
+<p>原始图像：
+<img src="lena.png" alt="Lena原始图" loading="lazy"></p>
+<p>均值滤波效果：
+<img src="lena_avg.png" alt="均值滤波" loading="lazy"></p>
+<p>中值滤波效果：
+<img src="lena_med.png" alt="中值滤波" loading="lazy"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文基于 C 语言实现了：</p>
 <ul>
 <li>PGM 图像读取</li>

@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
     window.Yun = {}
     window.CONFIG = {"hostname":"level0-jj.github.io","root":"/","title":"J的小破站","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
-  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/rss2.xml" title="J的小站" type="application/rss+xml"><meta name="description" content="碎碎念小学期的大作业（为什么暑假要上课），再也不想写这种令人心情不愉快的作业了口牙！ 本文结合小规模示例介绍以下内容：  最小二乘线性回归 决策树回归 决策树分类 K-Means 聚类与 K-Means++ 初始化  图形界面使用 EasyX 完成。EasyX 在项目中主要负责绘制散点、曲线、聚类中心和处理按钮点击，本文不对其接口展开介绍。 回归、分类和聚类有什么区别机器学习任务可以先从“有没有标">
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/rss2.xml" title="J的小站" type="application/rss+xml"><meta name="description" content="碎碎念念小学期的大作业（为什么暑假要上课），再也不想写这种令人心情不愉快的作业了口牙！ 本文结合小规模示例介绍以下内容：  最小二乘线性回归 决策树回归 决策树分类 K-Means 聚类与 K-Means++ 初始化  图形界面使用 EasyX 完成。EasyX 在项目中主要负责绘制散点、曲线、聚类中心和处理按钮点击，本文不对其接口展开介绍。 回归、分类和聚类有什么区别机器学习任务可以先从“有没有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于我的小学期计算机大作业">
 <meta property="og:url" content="https://level0-jj.github.io/2026/07/21/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%B0%8F%E5%AD%A6%E6%9C%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A/index.html">
 <meta property="og:site_name" content="J的小站">
-<meta property="og:description" content="碎碎念小学期的大作业（为什么暑假要上课），再也不想写这种令人心情不愉快的作业了口牙！ 本文结合小规模示例介绍以下内容：  最小二乘线性回归 决策树回归 决策树分类 K-Means 聚类与 K-Means++ 初始化  图形界面使用 EasyX 完成。EasyX 在项目中主要负责绘制散点、曲线、聚类中心和处理按钮点击，本文不对其接口展开介绍。 回归、分类和聚类有什么区别机器学习任务可以先从“有没有标">
+<meta property="og:description" content="碎碎念念小学期的大作业（为什么暑假要上课），再也不想写这种令人心情不愉快的作业了口牙！ 本文结合小规模示例介绍以下内容：  最小二乘线性回归 决策树回归 决策树分类 K-Means 聚类与 K-Means++ 初始化  图形界面使用 EasyX 完成。EasyX 在项目中主要负责绘制散点、曲线、聚类中心和处理按钮点击，本文不对其接口展开介绍。 回归、分类和聚类有什么区别机器学习任务可以先从“有没有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-07-21T01:01:57.000Z">
-<meta property="article:modified_time" content="2026-07-21T01:34:21.330Z">
+<meta property="article:modified_time" content="2026-07-21T01:41:27.819Z">
 <meta property="article:author" content="J">
 <meta property="article:tag" content="KMeans">
 <meta property="article:tag" content="c++">
@@ -45,7 +45,7 @@ IconifyProviders = {
     // Wait for 1 second before switching API hosts
     rotate: 1000,
   },
-};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="J"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="J"><span class="site-author-status" title="Looking for dawn.">🌑</span></a><div class="site-author-name"><a href="/about/">J</a></div><span class="site-name">J的小站</span><sub class="site-subtitle">希望开心每一天……</sub><div class="site-description">是个懒惰的大一小灯，努力学习ing o(*￣▽￣*)ブ</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">10</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">3</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">11</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:settings-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/rss2.xml" title="RSS" target="_blank" style="color:#FFA500"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/level0-jj" title="GitHub" target="_blank" style="color:#6e5494"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/600259872" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2481937283@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/about/#comment" title="留言板" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:clipboard-line"></span></a><a class="links-item hty-icon-button" href="/wife/" title="我的老婆" style="color:undefined"><span class="icon iconify" data-icon="ri:heart-pulse-line"></span></a><a class="links-item hty-icon-button" href="/tools/" title="妙妙小工具" style="color:undefined"><span class="icon iconify" data-icon="ri:signpost-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">碎碎念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E3%80%81%E5%88%86%E7%B1%BB%E5%92%8C%E8%81%9A%E7%B1%BB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">回归、分类和聚类有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">3.</span> <span class="toc-text">最小二乘线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">3.2.</span> <span class="toc-text">C++ 实现思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%9B%9E%E5%BD%92"><span class="toc-number">4.</span> <span class="toc-text">决策树回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%88%92%E5%88%86%E4%BD%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">如何选择划分位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90-1"><span class="toc-number">4.2.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E5%92%8C%E4%BC%98%E5%8C%96"><span class="toc-number">4.3.</span> <span class="toc-text">前缀和优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E6%B7%B1%E5%AF%B9%E7%BB%93%E6%9E%9C%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">4.4.</span> <span class="toc-text">树深对结果的影响</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">决策树分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="toc-number">5.1.</span> <span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90-2"><span class="toc-number">5.2.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91%E8%BF%87%E7%A8%8B"><span class="toc-number">5.3.</span> <span class="toc-text">建树过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C"><span class="toc-number">5.4.</span> <span class="toc-text">如何评价分类结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means-%E8%81%9A%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">K-Means 聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90-3"><span class="toc-number">6.1.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-K-Means"><span class="toc-number">6.2.</span> <span class="toc-text">为什么需要 K-Means++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E6%95%9B%E4%B8%8E%E7%A9%BA%E7%B0%87%E5%A4%84%E7%90%86"><span class="toc-number">6.3.</span> <span class="toc-text">收敛与空簇处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E5%A6%82%E4%BD%95%E5%B8%AE%E5%8A%A9%E7%90%86%E8%A7%A3%E7%AE%97%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">可视化如何帮助理解算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">8.</span> <span class="toc-text">几种算法的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://level0-jj.github.io/2026/07/21/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%B0%8F%E5%AD%A6%E6%9C%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="J"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="J的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">关于我的小学期计算机大作业</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2026-07-21 09:01:57" itemprop="dateCreated datePublished" datetime="2026-07-21T09:01:57+08:00">2026-07-21</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">3.3k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">12m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%BC%96%E7%A8%8B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">编程</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/c/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">c++</span></a><a class="tag-item" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">决策树</span></a><a class="tag-item" href="/tags/KMeans/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">KMeans</span></a><a class="tag-item" href="/tags/%E8%81%9A%E7%B1%BB/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">聚类</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h2 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h2><p>小学期的大作业（为什么暑假要上课），再也不想写这种令人心情不愉快的作业了口牙！</p>
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="J"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="J"><span class="site-author-status" title="Looking for dawn.">🌑</span></a><div class="site-author-name"><a href="/about/">J</a></div><span class="site-name">J的小站</span><sub class="site-subtitle">希望开心每一天……</sub><div class="site-description">是个懒惰的大一小灯，努力学习ing o(*￣▽￣*)ブ</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">10</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">3</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">11</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:settings-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/rss2.xml" title="RSS" target="_blank" style="color:#FFA500"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/level0-jj" title="GitHub" target="_blank" style="color:#6e5494"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/600259872" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:2481937283@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/about/#comment" title="留言板" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:clipboard-line"></span></a><a class="links-item hty-icon-button" href="/wife/" title="我的老婆" style="color:undefined"><span class="icon iconify" data-icon="ri:heart-pulse-line"></span></a><a class="links-item hty-icon-button" href="/tools/" title="妙妙小工具" style="color:undefined"><span class="icon iconify" data-icon="ri:signpost-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B5%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">碎碎念念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E3%80%81%E5%88%86%E7%B1%BB%E5%92%8C%E8%81%9A%E7%B1%BB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">回归、分类和聚类有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">3.</span> <span class="toc-text">最小二乘线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-number">3.2.</span> <span class="toc-text">C++ 实现思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%9B%9E%E5%BD%92"><span class="toc-number">4.</span> <span class="toc-text">决策树回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%88%92%E5%88%86%E4%BD%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">如何选择划分位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90-1"><span class="toc-number">4.2.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E5%92%8C%E4%BC%98%E5%8C%96"><span class="toc-number">4.3.</span> <span class="toc-text">前缀和优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E6%B7%B1%E5%AF%B9%E7%BB%93%E6%9E%9C%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">4.4.</span> <span class="toc-text">树深对结果的影响</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E7%B1%BB"><span class="toc-number">5.</span> <span class="toc-text">决策树分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="toc-number">5.1.</span> <span class="toc-text">信息熵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90-2"><span class="toc-number">5.2.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E6%A0%91%E8%BF%87%E7%A8%8B"><span class="toc-number">5.3.</span> <span class="toc-text">建树过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C"><span class="toc-number">5.4.</span> <span class="toc-text">如何评价分类结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Means-%E8%81%9A%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text">K-Means 聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90-3"><span class="toc-number">6.1.</span> <span class="toc-text">一个简单例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-K-Means"><span class="toc-number">6.2.</span> <span class="toc-text">为什么需要 K-Means++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E6%95%9B%E4%B8%8E%E7%A9%BA%E7%B0%87%E5%A4%84%E7%90%86"><span class="toc-number">6.3.</span> <span class="toc-text">收敛与空簇处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E5%A6%82%E4%BD%95%E5%B8%AE%E5%8A%A9%E7%90%86%E8%A7%A3%E7%AE%97%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">可视化如何帮助理解算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">8.</span> <span class="toc-text">几种算法的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://level0-jj.github.io/2026/07/21/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%B0%8F%E5%AD%A6%E6%9C%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A4%A7%E4%BD%9C%E4%B8%9A/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="J"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="J的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">关于我的小学期计算机大作业</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2026-07-21 09:01:57" itemprop="dateCreated datePublished" datetime="2026-07-21T09:01:57+08:00">2026-07-21</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">3.3k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">12m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%BC%96%E7%A8%8B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">编程</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/c/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">c++</span></a><a class="tag-item" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">决策树</span></a><a class="tag-item" href="/tags/KMeans/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">KMeans</span></a><a class="tag-item" href="/tags/%E8%81%9A%E7%B1%BB/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">聚类</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h2 id="碎碎念念"><a href="#碎碎念念" class="headerlink" title="碎碎念念"></a>碎碎念念</h2><p>小学期的大作业（为什么暑假要上课），再也不想写这种令人心情不愉快的作业了口牙！</p>
 <p>本文结合小规模示例介绍以下内容：</p>
 <ul>
 <li>最小二乘线性回归</li>
@@ -85,13 +85,22 @@ IconifyProviders = {
 </tbody></table>
 <p>回归和分类都需要已知答案来训练，因此属于监督学习；聚类没有预先提供类别，因此属于无监督学习。</p>
 <h2 id="最小二乘线性回归"><a href="#最小二乘线性回归" class="headerlink" title="最小二乘线性回归"></a>最小二乘线性回归</h2><p>线性回归希望用一条直线描述输入 $x$ 与目标值 $y$ 之间的关系：</p>
-<p>$$<br>y&#x3D;ax+b<br>$$</p>
+<p>$$
+y&#x3D;ax+b
+$$</p>
 <p>其中，$a$ 是斜率，$b$ 是截距。最小二乘法会选择一组 $a$ 和 $b$，使所有样本的残差平方和尽可能小：</p>
-<p>$$<br>\sum_{i&#x3D;1}^{n}\left[y_i-(ax_i+b)\right]^2<br>$$</p>
+<p>$$
+\sum_{i&#x3D;1}^{n}\left[y_i-(ax_i+b)\right]^2
+$$</p>
 <p>平方可以避免正误差和负误差相互抵消，同时会让较大的误差受到更明显的惩罚。</p>
 <p>斜率和截距可以直接计算：</p>
-<p>$$<br>a&#x3D;\frac{n\sum x_i y_i-\sum x_i\sum y_i}<br>{n\sum x_i^2-(\sum x_i)^2}<br>$$</p>
-<p>$$<br>b&#x3D;\frac{\sum y_i-a\sum x_i}{n}<br>$$</p>
+<p>$$
+a&#x3D;\frac{n\sum x_i y_i-\sum x_i\sum y_i}
+{n\sum x_i^2-(\sum x_i)^2}
+$$</p>
+<p>$$
+b&#x3D;\frac{\sum y_i-a\sum x_i}{n}
+$$</p>
 <h3 id="一个简单例子"><a href="#一个简单例子" class="headerlink" title="一个简单例子"></a>一个简单例子</h3><p>假设有三个样本：</p>
 <table>
 <thead>
@@ -114,14 +123,25 @@ IconifyProviders = {
 </tr>
 </tbody></table>
 <p>可以得到：</p>
-<p>$$<br>\sum x_i&#x3D;6,\quad \sum y_i&#x3D;10,\quad<br>\sum x_i y_i&#x3D;23,\quad \sum x_i^2&#x3D;14<br>$$</p>
+<p>$$
+\sum x_i&#x3D;6,\quad \sum y_i&#x3D;10,\quad
+\sum x_i y_i&#x3D;23,\quad \sum x_i^2&#x3D;14
+$$</p>
 <p>代入公式：</p>
-<p>$$<br>a&#x3D;\frac{3\times23-6\times10}{3\times14-6^2}&#x3D;1.5<br>$$</p>
-<p>$$<br>b&#x3D;\frac{10-1.5\times6}{3}&#x3D;\frac{1}{3}<br>$$</p>
+<p>$$
+a&#x3D;\frac{3\times23-6\times10}{3\times14-6^2}&#x3D;1.5
+$$</p>
+<p>$$
+b&#x3D;\frac{10-1.5\times6}{3}&#x3D;\frac{1}{3}
+$$</p>
 <p>最终拟合直线约为：</p>
-<p>$$<br>y&#x3D;1.5x+0.33<br>$$</p>
+<p>$$
+y&#x3D;1.5x+0.33
+$$</p>
 <p>当输入 $x&#x3D;4$ 时，模型预测：</p>
-<p>$$<br>y&#x3D;1.5\times4+0.33&#x3D;6.33<br>$$</p>
+<p>$$
+y&#x3D;1.5\times4+0.33&#x3D;6.33
+$$</p>
 <h3 id="C-实现思路"><a href="#C-实现思路" class="headerlink" title="C++ 实现思路"></a>C++ 实现思路</h3><p>程序只需遍历一次样本，累计四个统计量，再代入公式即可：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">LeastSquares</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token double-colon punctuation">::</span>vector<span class="token operator">&lt;</span>DataPoint<span class="token operator">></span><span class="token operator">&amp;</span> points<span class="token punctuation">,</span>
                   <span class="token keyword">double</span><span class="token operator">&amp;</span> a<span class="token punctuation">,</span> <span class="token keyword">double</span><span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -161,9 +181,15 @@ x > 3.5 进入右子树<span aria-hidden="true" class="line-numbers-rows"><span>
 
 <p>每个叶节点保存该区域内所有目标值的平均值。预测时，从根节点出发，根据输入与阈值的关系向左或向右移动，最后返回叶节点的均值。</p>
 <h3 id="如何选择划分位置"><a href="#如何选择划分位置" class="headerlink" title="如何选择划分位置"></a>如何选择划分位置</h3><p>回归树通常用均方误差衡量一组数据是否集中：</p>
-<p>$$<br>\operatorname{MSE}(D)&#x3D;\frac{1}{|D|}<br>\sum_{i&#x3D;1}^{|D|}(y_i-\bar y)^2<br>$$</p>
+<p>$$
+\operatorname{MSE}(D)&#x3D;\frac{1}{|D|}
+\sum_{i&#x3D;1}^{|D|}(y_i-\bar y)^2
+$$</p>
 <p>对一个候选阈值，需要计算左右子集的加权误差：</p>
-<p>$$<br>L&#x3D;\frac{|D_L|}{|D|}\operatorname{MSE}(D_L)<br>+\frac{|D_R|}{|D|}\operatorname{MSE}(D_R)<br>$$</p>
+<p>$$
+L&#x3D;\frac{|D_L|}{|D|}\operatorname{MSE}(D_L)
++\frac{|D_R|}{|D|}\operatorname{MSE}(D_R)
+$$</p>
 <p>算法选择 $L$ 最小的阈值。</p>
 <h3 id="一个简单例子-1"><a href="#一个简单例子-1" class="headerlink" title="一个简单例子"></a>一个简单例子</h3><p>假设数据如下：</p>
 <table>
@@ -204,7 +230,9 @@ x > 2.5 时预测 8<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>这也解释了为什么回归树的预测图像通常是阶梯形：同一个叶节点对应的输入区间会得到相同预测值。</p>
 <h3 id="前缀和优化"><a href="#前缀和优化" class="headerlink" title="前缀和优化"></a>前缀和优化</h3><p>如果每测试一个阈值都重新遍历左右数据，计算开销会比较大。项目在排序后建立 $y$ 和 $y^2$ 的前缀和。</p>
 <p>对任意区间，可以快速得到：</p>
-<p>$$<br>\operatorname{MSE}&#x3D;E[y^2]-E[y]^2<br>$$</p>
+<p>$$
+\operatorname{MSE}&#x3D;E[y^2]-E[y]^2
+$$</p>
 <p>这样每个候选切分位置的误差可以在 $O(1)$ 时间内计算。单个节点中，排序复杂度为 $O(n\log n)$，扫描候选阈值为 $O(n)$。</p>
 <h3 id="树深对结果的影响"><a href="#树深对结果的影响" class="headerlink" title="树深对结果的影响"></a>树深对结果的影响</h3><p>树的最大深度决定模型复杂度：</p>
 <ul>
@@ -229,20 +257,28 @@ x > 2.5 时预测 8<span aria-hidden="true" class="line-numbers-rows"><span></sp
 </ul>
 <p>目标类别包括山鸢尾、变色鸢尾和维吉尼亚鸢尾。</p>
 <h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><p>信息熵用于描述类别的混乱程度：</p>
-<p>$$<br>H(D)&#x3D;-\sum_{k&#x3D;1}^{K}p_k\log_2p_k<br>$$</p>
+<p>$$
+H(D)&#x3D;-\sum_{k&#x3D;1}^{K}p_k\log_2p_k
+$$</p>
 <p>其中，$p_k$ 是第 $k$ 类样本所占比例。</p>
 <p>如果节点中的样本全部属于同一类，熵为 $0$；如果各类别数量接近，数据更加混乱，熵会更大。</p>
 <h3 id="一个简单例子-2"><a href="#一个简单例子-2" class="headerlink" title="一个简单例子"></a>一个简单例子</h3><p>假设某节点中有四个样本：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">A, A, B, B<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>两类比例都为 $\frac{1}{2}$，因此：</p>
-<p>$$<br>H(D)&#x3D;-\frac{1}{2}\log_2\frac{1}{2}<br>-\frac{1}{2}\log_2\frac{1}{2}&#x3D;1<br>$$</p>
+<p>$$
+H(D)&#x3D;-\frac{1}{2}\log_2\frac{1}{2}
+-\frac{1}{2}\log_2\frac{1}{2}&#x3D;1
+$$</p>
 <p>现在用某个特征进行划分，得到：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">左侧：A, A
 右侧：B, B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>左右子集的熵都是 $0$。信息增益为：</p>
-<p>$$<br>Gain(D)&#x3D;H(D)-\frac{|D_L|}{|D|}H(D_L)<br>-\frac{|D_R|}{|D|}H(D_R)&#x3D;1<br>$$</p>
+<p>$$
+Gain(D)&#x3D;H(D)-\frac{|D_L|}{|D|}H(D_L)
+-\frac{|D_R|}{|D|}H(D_R)&#x3D;1
+$$</p>
 <p>这次划分完全分开了两个类别，因此效果很好。</p>
 <h3 id="建树过程"><a href="#建树过程" class="headerlink" title="建树过程"></a>建树过程</h3><p>分类树的训练过程可以概括为：</p>
 <ul>
@@ -255,7 +291,10 @@ x > 2.5 时预测 8<span aria-hidden="true" class="line-numbers-rows"><span></sp
 </ul>
 <p>当样本已经属于同一类别、达到最大深度或找不到有效划分时停止递归，并将当前节点设置为叶节点。</p>
 <h3 id="如何评价分类结果"><a href="#如何评价分类结果" class="headerlink" title="如何评价分类结果"></a>如何评价分类结果</h3><p>最常用的基础指标是准确率：</p>
-<p>$$<br>Accuracy&#x3D;\frac{\text{预测正确的样本数}}<br>{\text{样本总数}}\times100%<br>$$</p>
+<p>$$
+Accuracy&#x3D;\frac{\text{预测正确的样本数}}
+{\text{样本总数}}\times100%
+$$</p>
 <p>项目先使用固定随机种子打乱 Iris 数据，再按照 $8:2$ 划分训练集和测试集。固定随机种子可以让每次运行得到相同的数据划分，方便比较和复现实验结果。</p>
 <p>训练准确率很高并不一定代表模型效果好，还需要观察测试准确率。如果训练准确率明显高于测试准确率，模型可能出现了过拟合。</p>
 <h2 id="K-Means-聚类"><a href="#K-Means-聚类" class="headerlink" title="K-Means 聚类"></a>K-Means 聚类</h2><p>K-Means 用于在没有标签的情况下，将数据自动分成 $K$ 个簇。它希望同一簇内的样本彼此接近，不同簇的中心尽量分开。</p>
@@ -267,15 +306,26 @@ x > 2.5 时预测 8<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <li>重复分配和更新，直到中心几乎不再移动。</li>
 </ul>
 <p>二维空间中常用欧几里得距离：</p>
-<p>$$<br>d(\mathbf{x},\boldsymbol{\mu})&#x3D;<br>\sqrt{\sum_{j&#x3D;1}^{m}(x_j-\mu_j)^2}<br>$$</p>
+<p>$$
+d(\mathbf{x},\boldsymbol{\mu})&#x3D;
+\sqrt{\sum_{j&#x3D;1}^{m}(x_j-\mu_j)^2}
+$$</p>
 <h3 id="一个简单例子-3"><a href="#一个简单例子-3" class="headerlink" title="一个简单例子"></a>一个简单例子</h3><p>假设有六个二维点：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">(1, 1), (1, 2), (2, 1)
 (8, 8), (8, 9), (9, 8)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>设置 $K&#x3D;2$，初始中心选择 $(1,1)$ 和 $(8,8)$。</p>
 <p>第一次分配后，前三个点更接近 $(1,1)$，后三个点更接近 $(8,8)$。随后计算两个簇的新中心：</p>
-<p>$$<br>\boldsymbol{\mu}_1&#x3D;<br>\left(\frac{1+1+2}{3},\frac{1+2+1}{3}\right)<br>&#x3D;(1.33,1.33)<br>$$</p>
-<p>$$<br>\boldsymbol{\mu}_2&#x3D;<br>\left(\frac{8+8+9}{3},\frac{8+9+8}{3}\right)<br>&#x3D;(8.33,8.33)<br>$$</p>
+<p>$$
+\boldsymbol{\mu}_1&#x3D;
+\left(\frac{1+1+2}{3},\frac{1+2+1}{3}\right)
+&#x3D;(1.33,1.33)
+$$</p>
+<p>$$
+\boldsymbol{\mu}_2&#x3D;
+\left(\frac{8+8+9}{3},\frac{8+9+8}{3}\right)
+&#x3D;(8.33,8.33)
+$$</p>
 <p>再次分配时，各点所属簇不会改变，中心也保持稳定，算法便可以停止。</p>
 <h3 id="为什么需要-K-Means"><a href="#为什么需要-K-Means" class="headerlink" title="为什么需要 K-Means++"></a>为什么需要 K-Means++</h3><p>普通 K-Means 如果随机选出的初始中心过于接近，可能需要更多次迭代，也可能得到较差结果。</p>
 <p>K-Means++ 的初始化方式是：</p>
@@ -288,7 +338,10 @@ x > 2.5 时预测 8<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <p>距离现有中心越远的点，被选为新中心的概率越大。因此，初始中心通常会分布得更分散。</p>
 <p>需要注意，这里是“按概率选择”，而不是每次直接选择最远点。这样可以降低异常值被固定选中的风险。</p>
 <h3 id="收敛与空簇处理"><a href="#收敛与空簇处理" class="headerlink" title="收敛与空簇处理"></a>收敛与空簇处理</h3><p>项目计算新旧中心之间的位移。如果最大位移不超过容差，就认为算法已经收敛：</p>
-<p>$$<br>\max_k\left\lVert\boldsymbol{\mu}_k^{new}<br>-\boldsymbol{\mu}_k^{old}\right\rVert\leq\varepsilon<br>$$</p>
+<p>$$
+\max_k\left\lVert\boldsymbol{\mu}_k^{new}
+-\boldsymbol{\mu}_k^{old}\right\rVert\leq\varepsilon
+$$</p>
 <p>如果某个簇没有分配到任何样本，就无法计算平均值。一个简单的处理方式是暂时保留该簇原来的中心。也可以重新选择距离其他中心较远的样本作为中心。</p>
 <p>K-Means 的局限也比较明显：需要提前指定 $K$，对初始中心敏感，更适合近似球状、大小接近的簇，而且容易受到异常值影响。</p>
 <h2 id="可视化如何帮助理解算法"><a href="#可视化如何帮助理解算法" class="headerlink" title="可视化如何帮助理解算法"></a>可视化如何帮助理解算法</h2><p>图形界面不改变算法本身，但能把抽象结果转换为更直观的图像：</p>
@@ -299,9 +352,15 @@ x > 2.5 时预测 8<span aria-hidden="true" class="line-numbers-rows"><span></sp
 <li>在 K-Means 中，用颜色表示聚类标签，用特殊标记显示中心。</li>
 </ul>
 <p>从数据坐标转换到屏幕坐标时，横坐标可以按比例映射：</p>
-<p>$$<br>x_s&#x3D;x_{left}+\frac{x-x_{min}}{x_{max}-x_{min}}<br>(x_{right}-x_{left})<br>$$</p>
+<p>$$
+x_s&#x3D;x_{left}+\frac{x-x_{min}}{x_{max}-x_{min}}
+(x_{right}-x_{left})
+$$</p>
 <p>由于屏幕纵坐标通常向下增大，纵坐标映射需要反向：</p>
-<p>$$<br>y_s&#x3D;y_{bottom}-\frac{y-y_{min}}{y_{max}-y_{min}}<br>(y_{bottom}-y_{top})<br>$$</p>
+<p>$$
+y_s&#x3D;y_{bottom}-\frac{y-y_{min}}{y_{max}-y_{min}}
+(y_{bottom}-y_{top})
+$$</p>
 <p>项目使用 EasyX 完成这些基础绘制和交互。对于理解算法而言，重点仍然是数据如何训练、模型如何预测以及结果为什么呈现出当前形态。</p>
 <h2 id="几种算法的对比"><a href="#几种算法的对比" class="headerlink" title="几种算法的对比"></a>几种算法的对比</h2><table>
 <thead>
