@@ -119,6 +119,42 @@ canvas.fireworks {
   pointer-events: none;
 }
 
+/* Keep navigation responsive while softly transitioning only the page content. */
+#content {
+  transition:
+    opacity 240ms ease-out,
+    transform 240ms ease-out;
+}
+
+#content.page-transition-leaving,
+#content.page-transition-entering {
+  will-change: opacity, transform;
+}
+
+#content.page-transition-leaving {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition-duration: 120ms;
+  transition-timing-function: ease-in;
+}
+
+#content.page-transition-entering {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #content,
+  #content.page-transition-leaving,
+  #content.page-transition-entering {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Random friendship quote on the links page. */
 .friendship-quote {
   position: relative;
